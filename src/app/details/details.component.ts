@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DogList, Dog } from "../dog";
+
+
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
@@ -12,7 +14,7 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.dog = DogList.data.find((dog) => dog.name === 'Pippa') || { name: 'not found' };
+    this.dog = DogList.data.find((dog) => dog.name === 'Brewery') || { name: 'not found' };
 
   }
 

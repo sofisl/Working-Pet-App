@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DogList, Dog } from "../dog";
 
 @Component({
   selector: 'app-dogs',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dogs.component.scss']
 })
 export class DogsComponent implements OnInit {
+
+  dogs = DogList.data;
 
   constructor() { }
 

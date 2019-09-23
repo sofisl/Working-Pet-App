@@ -15,8 +15,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { DogsComponent } from './dogs/dogs.component' ;
 
 
-}
-
 @NgModule({
   declarations: [
     AppComponent,

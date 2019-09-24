@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DogList, Dog } from "../dog";
-
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-details',
@@ -10,11 +10,12 @@ import { DogList, Dog } from "../dog";
 export class DetailsComponent implements OnInit {
   dog: Dog;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
 
-    this.dog = DogList.data.find((dog) => dog.name === 'Brewery') || { name: 'not found' };
+    const name = this.route.snapshot.params.name || '';
+    this.dog = DogList.data.find((dog) => dog.name === name) || { name: 'not found' };
 
   }
 

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { DogList, Dog } from "../dog";
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-new-dog',
@@ -10,7 +13,7 @@ export class NewDogComponent implements OnInit {
 
   newDogForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private router: Router) {
     this.newDogForm = this.formBuilder.group({
       name: '',
       nickname: '',
@@ -26,6 +29,11 @@ export class NewDogComponent implements OnInit {
   }
 
   submitDog() {
-    this.newDogForm.reset();
+    this.newDogForm.value.breeds = this.newDogForm.value.breeds.split(', ');
+    let newDog = this.newDogForm.value;
+    DogList.data.push(newDog);
+    console.log(newDog);
+    let name = this.router.navigate(['/details',newDog.name]);
   }
+
 }

@@ -6,6 +6,6 @@
     description?: string;
     imgPath?: string;
     breeds?: string[];
-    weight?: number;
-    age?: number;
+    weight?: string;
+    age?: string;
   }

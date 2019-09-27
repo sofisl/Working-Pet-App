@@ -1,5 +1,30 @@
-<button [routerLink] = "['']"> Home </button>
-<button routerLink = "/new-dog"> Submit Dog </button>
+<!-- <link href = 'src/styles.scss' rel = 'stylesheet'> -->
+  <mat-toolbar color = "primary">
+   
+  <mat-menu #appMenu="matMenu" color = "primary">
+   <button mat-menu-item routerLink = "/">Home</button>  
+  <button mat-menu-item routerLink = "/new-dog">Submit Dog</button>
+    
+  </mat-menu>
+  
+  <button mat-icon-button [matMenuTriggerFor]="appMenu">
+    
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  
+
+  <h1 color = "secondary"> Imagine a Really Cool Name for this Pet App Here </h1>
+
+  <span class="fill-space"></span>
+
+  <h2 *ngIf = 'dogAuthenticate.state'> <img src = "{{dogAuthenticate.getProfilePicUrl()}}=s30-p"></h2>
+  <button mat-button *ngIf = '!dogAuthenticate.state' id = 'login' (click)= "signIn()">Login</button>
+  <button mat-button *ngIf = 'dogAuthenticate.state' id = 'logout' (click)= "signOut()">Logout</button>
+
+
+</mat-toolbar>
+
 <div class='dog-adoption__body'>
     <router-outlet></router-outlet>
   </div>

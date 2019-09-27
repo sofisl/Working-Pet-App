@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import '@angular/material';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +17,9 @@ import { MatCardModule } from '@angular/material/card' ;
 import { MatIconModule } from '@angular/material/icon' ;
 import { MatButtonModule } from '@angular/material/button';
 import { DogsComponent } from './dogs/dogs.component' ;
+import { MatToolbarModule} from '@angular/material/toolbar';
+import { MatMenuModule} from '@angular/material/menu';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 
@@ -38,8 +42,11 @@ import { DogsComponent } from './dogs/dogs.component' ;
     MatCardModule, 
     MatSelectModule,
     MatIconModule,
-    MatButtonModule
-  ],
+    MatButtonModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatFormFieldModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

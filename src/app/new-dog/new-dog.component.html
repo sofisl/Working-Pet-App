@@ -1,56 +1,57 @@
-<h1>Submit a dog!</h1>
-
+<h1 class='dogs__headline mdc-typography--headline2'>
+    Submit Dog
+  </h1>
 <form [formGroup]="newDogForm" (ngSubmit)='submitDog()'>
   <div>
-    <label for="name">
-      Name
-    </label>
-    <input id="name" type="text" formControlName="name">
+    <mat-form-field>
+        <mat-label></mat-label>
+        <input placeholder="Name" id="name" type="text" formControlName="name">
+  </mat-form-field>
   </div>
 
   <div>
-    <label for="nickname">
-      Nickname
-    </label>
-    <input id="nickname" type="text" formControlName="nickname">
+      <mat-form-field>
+          <mat-label></mat-label>
+          <input placeholder="Nickname" id="nickname" type="text" formControlName="nickname">
+    </mat-form-field>
   </div>
 
   <div>
-    <label for="description">
-      Description
-    </label>
-    <input id="description" type="text" formControlName="description">
+      <mat-form-field>
+          <mat-label></mat-label>
+          <input placeholder="Description" id="description" type="text" formControlName="description">
+    </mat-form-field>
   </div>
 
   <div>
-    <label for="imgPath">
-      Image URL
-    </label>
-    <input id="imgPath" type="text" formControlName="imgPath">
+      <mat-form-field>
+          <mat-label></mat-label>
+          <input placeholder="Image URL" id="imgPath" type="text" formControlName="imgPath">
+    </mat-form-field>
   </div>
 
   <div>
-    <label for="breeds">
-      Breed(s)
-    </label>
-    <input id="breeds" type="text" formControlName="breeds">
+      <mat-form-field>
+          <mat-label></mat-label>
+          <input placeholder="Breeds" id="breeds" type="text" formControlName="breeds">
+    </mat-form-field>
   </div>
 
   <div>
-    <label for="weight">
-      Weight
-    </label>
-    <input id="weight" type="number" formControlName="weight">
+      <mat-form-field>
+          <mat-label></mat-label>
+          <input placeholder="Weight" id="weight" type="text" formControlName="weight">
+    </mat-form-field>
   </div>
 
   <div>
-    <label for="age">
-      Age
-    </label>
-    <input id="age" type="number" formControlName="age">
+      <mat-form-field>
+          <mat-label></mat-label>
+          <input placeholder="Age" id="age" type="text" formControlName="age">
+    </mat-form-field>
   </div>
 
-  <button  >Submit dog</button>
+  <button mat-icon-button>Submit dog</button>
 
 </form>
 

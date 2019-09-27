@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DogList, Dog } from "../dog";
+import { Dog } from "../dog";
 import { ActivatedRoute } from "@angular/router";
+import {DogService} from "../services/dog_service";
+
 
 @Component({
   selector: 'app-details',
@@ -8,14 +10,13 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
-  dog: Dog;
-
-  constructor(private route: ActivatedRoute) { }
+  dog;
+  
+  constructor(private route: ActivatedRoute, private readonly dogService: DogService) { }
 
   ngOnInit() {
-
-    const name = this.route.snapshot.params.name || '';
-    this.dog = DogList.data.find((dog) => dog.name === name) || { name: 'not found' };
+    const id = this.route.snapshot.params.id || '';
+    this.dogService.getDogByID(id).then(dog => this.dog = dog);
 
   }
 

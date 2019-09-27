@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { DogsComponent } from './dogs/dogs.component' ;
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +28,7 @@ import { DogsComponent } from './dogs/dogs.component' ;
     DogsComponent
   ],
   imports: [
+    MatInputModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule, 
@@ -31,6 +36,7 @@ import { DogsComponent } from './dogs/dogs.component' ;
     ReactiveFormsModule, 
     BrowserAnimationsModule,
     MatCardModule, 
+    MatSelectModule,
     MatIconModule,
     MatButtonModule
   ],

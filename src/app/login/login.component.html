@@ -1,5 +1,18 @@
 <h1>DogAdoption admin console</h1>
 
-<button routerLink='/new-dog'>
-  Login
-</button>
+<h1 *ngIf = 'dogAuthenticate.state'>
+  Hello {{dogAuthenticate.state.displayName}}
+  <button (click)= "signOut()">
+      Logout
+  </button>    
+</h1>
+
+<h1 *ngIf = '!dogAuthenticate.state'>
+    <button (click)= "signIn()">
+        Login
+    </button>    
+  </h1>
+
+
+
+

@@ -46,14 +46,27 @@ export class DogsComponent implements OnInit {
   filterDogs() {
     const lowerSearch = this.searchValue.toLowerCase();
     const lowerFilteredBreed = this.filteredBreed && this.filteredBreed.toLowerCase();
-
-    this.dogs = this.dogs.filter(dog => {
+    
+    this.dogs = this.allDogs.filter(dog => {
       if (!this.searchValue) return true;
+      let matchesName = null;
+      let matchesNickname = null;
+      let matchesDescription = null;
+      let matchesBreed = null;
 
-      const matchesName = dog.name.toLowerCase().includes(lowerSearch);
-      const matchesNickname = dog.nickname.toLowerCase().includes(lowerSearch);
-      const matchesDescription = dog.description.toLowerCase().includes(lowerSearch);
-      const matchesBreed = !this.filteredBreed && dog.breeds.some(breed => breed.toLowerCase().includes(lowerSearch) && !!lowerSearch);
+      if (dog.name) {
+        matchesName = dog.name.toLowerCase().includes(lowerSearch);
+      }
+      if (matchesNickname) {
+        dog.nickname.toLowerCase().includes(lowerSearch);
+      }
+      if (matchesDescription) {
+        dog.description.toLowerCase().includes(lowerSearch);
+      }
+      if (matchesBreed) {
+        !this.filteredBreed && dog.breeds.some(breed => breed.toLowerCase().includes(lowerSearch) && !!lowerSearch);
+      }
+     
       const isTextMatch = (matchesName || matchesNickname || matchesDescription) && lowerSearch.length;
 
       const onlyBreed = dog.breeds.includes(lowerFilteredBreed);
@@ -65,6 +78,15 @@ export class DogsComponent implements OnInit {
       } else if (lowerSearch.length) {
         return isTextMatch;
       }
+    });
+  }
+
+  clear() {
+    this.setBreeds();
+    this.dogService.getDogs().then(dogs=> {
+      this.dogs = dogs;
+      this.allDogs = dogs;
+      this.setBreeds();
     });
   }
 

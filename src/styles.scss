@@ -18,6 +18,7 @@ $dog-warn:    mat-palette($mat-red);
 // Create the theme object (a Sass map containing all of the palettes).
 $dog-theme: mat-light-theme($dog-primary, $dog-accent, $dog-warn);
 
+
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.

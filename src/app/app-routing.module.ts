@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';;
+//import { LoginComponent } from './login/login.component';;
 import {NewDogComponent} from './new-dog/new-dog.component';
 import { DetailsComponent } from './details/details.component';
 import { DogsComponent } from './dogs/dogs.component';

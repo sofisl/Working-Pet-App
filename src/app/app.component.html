@@ -5,7 +5,7 @@
   <mat-menu #appMenu="matMenu" color = "primary">
   <button mat-menu-item routerLink = "/">Home</button>  
   <button mat-menu-item routerLink = "/new-dog">Submit Dog</button>
-  <button mat-menu-item *ngIf = 'userService.isAdmin' routerLink = "https://adoptpetadmin-fkuvy4zymq-uc.a.run.app/">Special Admin Page</button> 
+  <button mat-menu-item *ngIf = 'userService.isAdmin' routerLink = "/externalRedirect" >Special Admin Page</button> 
     
   </mat-menu>
   

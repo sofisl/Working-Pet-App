@@ -20,6 +20,7 @@ import { DogsComponent } from './dogs/dogs.component' ;
 import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatMenuModule} from '@angular/material/menu';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { ExternalRedirectComponent } from './external-redirect/external-redirect.component';
 
 
 
@@ -29,7 +30,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     //LoginComponent,
     NewDogComponent,
     DetailsComponent,
-    DogsComponent
+    DogsComponent,
+    ExternalRedirectComponent
   ],
   imports: [
     MatInputModule,

@@ -28,11 +28,21 @@ export class DogAuthenticate {
         firebase.auth().onAuthStateChanged((user) => {
             if(user) {
                 this.state = user;
+                return true;
             } else {
                 this.state  = user;
+                return false;
             }
         })
 }
+
+    getCurrentUser(user) {
+        if(user) {
+            return firebase.auth().currentUser.uid;
+        }
+    }
+
+    
 
 
     signOut() {

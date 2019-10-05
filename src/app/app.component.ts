@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {DogAuthenticate} from "./services/DogAuthenticate";
-
+import {UserService} from "./services/userService";
 
 @Component({
   selector: 'app-root',
@@ -8,11 +8,15 @@ import {DogAuthenticate} from "./services/DogAuthenticate";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(private readonly dogAuthenticate: DogAuthenticate) { }
+  constructor(private readonly dogAuthenticate: DogAuthenticate, private readonly userService: UserService) { }
+  isAdmin = false;
 
-  ngOnInit() {
+  async ngOnInit() {
     this.dogAuthenticate.watch();
     console.log(this.dogAuthenticate.state);
+    console.log(await this.userService.addUser());
+    await this.userService.getUserAdminStatus();
+    console.log(this.userService.isAdmin);
   }
 
   signIn() {
@@ -29,6 +33,10 @@ export class AppComponent {
     //this.signedIn = false;
     //console.log(this.dogAuthenticate.isUserSignedIn());
   }
+
+ 
+
+  
 
   
 }

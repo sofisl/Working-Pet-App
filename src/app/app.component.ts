@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {DogAuthenticate} from "./services/DogAuthenticate";
 import {UserService} from "./services/userService";
 
@@ -9,34 +9,45 @@ import {UserService} from "./services/userService";
 })
 export class AppComponent {
   constructor(private readonly dogAuthenticate: DogAuthenticate, private readonly userService: UserService) { }
-  isAdmin = false;
+  isUAdmin = false;
+  userState = null;
 
   async ngOnInit() {
-    this.dogAuthenticate.watch();
-    console.log(this.dogAuthenticate.state);
-    console.log(await this.userService.addUser());
-    await this.userService.getUserAdminStatus();
-    console.log(this.userService.isAdmin);
+    console.log(this.dogAuthenticate.watch()); //undefined
+    console.log(this.dogAuthenticate.state); //null
+    // console.log(await this.isUserAdmin());
+    // console.log(await this.dogState());
   }
 
-  signIn() {
+  async signIn() {
     this.dogAuthenticate.signIn();
-    //this.signedIn = true;
-    //this.name = this.dogAuthenticate.getUserName();
-    //console.log(this.dogAuthenticate.isUserSignedIn());
-    //return this.name;
-    
+    await this.userService.addUser();
   }
 
   signOut() {
     this.dogAuthenticate.signOut();
-    //this.signedIn = false;
-    //console.log(this.dogAuthenticate.isUserSignedIn());
+    
   }
 
- 
+  async dogState() {
+    this.dogAuthenticate.watch();
+    if (this.dogAuthenticate.watch() != null) {
+      this.userState = true;
+    } else {
+      this.userState = false;
+    }
+    return this.userState;
+  }
 
-  
+  async isUserAdmin() {
+    await this.userService.getUserAdminStatus();
+    if (this.userService.getUserAdminStatus()) {
+      this.isUAdmin = true;
+    } else {
+      this.isUAdmin = false;
+    }
+    return this.isUAdmin;
+  }
 
   
 }

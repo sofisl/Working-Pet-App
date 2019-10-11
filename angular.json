@@ -28,7 +28,9 @@
               "src/assets"
             ],
             "styles": [
-              {"input":"src/styles.scss"},
+              {
+                "input": "src/styles.scss"
+              },
               "./node_modules/@material/typography/dist/mdc.typography.min.css"
             ],
             "scripts": []
@@ -94,7 +96,9 @@
               "src/assets"
             ],
             "styles": [
-              {"input":"src/styles.scss"}
+              {
+                "input": "src/styles.scss"
+              }
             ],
             "scripts": []
           }

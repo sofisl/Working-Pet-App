@@ -1,11 +1,13 @@
 <!-- <link href = 'src/styles.scss' rel = 'stylesheet'> -->
+
+
 <body mat-app-background>
 <mat-toolbar color = "primary">
    
   <mat-menu #appMenu="matMenu" color = "primary">
   <button mat-menu-item routerLink = "/">Home</button>  
   <button mat-menu-item routerLink = "/new-dog">Submit Dog</button>
-  <button mat-menu-item *ngIf = 'userService.isAdmin' routerLink = "/externalRedirect" >Special Admin Page</button> 
+  <button mat-menu-item *ngIf = 'this.userService.isAdmin' routerLink = "/externalRedirect" >Special Admin Page</button> 
     
   </mat-menu>
   
@@ -20,9 +22,9 @@
 
   <span class="fill-space"></span>
 
-  <h2 *ngIf = 'dogAuthenticate.state'> <img src = "{{dogAuthenticate.getProfilePicUrl()}}=s30-p"></h2>
-  <button mat-button *ngIf = '!dogAuthenticate.state' id = 'login' (click)= "signIn()">Login</button>
-  <button mat-button *ngIf = 'dogAuthenticate.state' id = 'logout' (click)= "signOut()">Logout</button>
+  <h2 *ngIf = 'this.dogAuthenticate.state'> <img src = "{{dogAuthenticate.getProfilePicUrl()}}=s30-p"></h2>
+  <button mat-button *ngIf = '!this.dogAuthenticate.state' id = 'login' (click)= "signIn()">Login</button>
+  <button mat-button *ngIf = 'this.dogAuthenticate.state' id = 'logout' (click)= "signOut()">Logout</button>
 
 
 </mat-toolbar>

@@ -34,7 +34,7 @@ export class DogAuthenticate {
                 return false;
             }
         })
-}
+    }
 
     getCurrentUser(user) {
         if(user) {
